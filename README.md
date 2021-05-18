@@ -1,6 +1,6 @@
-Truckersmp companion app
+# Truckersmp companion app
 
-Assistant app for displaying information about the multiplayer of game Euro truck simulator 2.
+****Assistant app for displaying information about the multiplayer of game Euro truck simulator 2.****
 
 Documentation: [PDF](https://docs.google.com/document/d/1IJqDPEcv0sNIK2K3gKbQbg7DM80HuirLSlCk7dS6fLk/edit?usp=sharing)
 
