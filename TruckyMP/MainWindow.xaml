@@ -1,0 +1,87 @@
+﻿<Window x:Class="TruckyMP.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TruckyMP" xmlns:local1="clr-namespace:TruckyMP.Sup.Mycontrol"
+        mc:Ignorable="d"
+        Title="ETS2 MP Information" Height="391" Width="800" MinHeight="360" MinWidth="900">
+    <DockPanel Background="DarkGray">
+        <StackPanel DockPanel.Dock="Top" >
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <TextBlock Text="Supported game version: "/>
+                <TextBlock Text="{Binding Game_ver}"/>
+            </StackPanel>
+            <StackPanel Margin="5,0,5,0">
+                <local1:UserControl1></local1:UserControl1>
+            </StackPanel>
+        </StackPanel>
+        <StackPanel DockPanel.Dock="Top" Background="Gray">
+            <Label Content="Most Players in place:" HorizontalAlignment="Center"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Margin="5">
+            <StackPanel Margin="5,10,5,0">
+                <TextBlock Text="Place:"/>
+                <TextBlock Text="Players:"/>
+                <TextBlock Text="Country:"/>
+                <TextBlock Text="Severity:"/>
+                <TextBlock Text="Traffic Jams:"/>
+                <TextBlock Text="In Traffic Jams:"/>
+                <Border BorderThickness="5" CornerRadius="5" BorderBrush="#EAEAEA" Margin="0,20,0,5">
+                    <ComboBox Name="serverCB" Text="{Binding Server}" BorderThickness="0">
+                        <ComboBoxItem Content="sim1"/>
+                        <ComboBoxItem Content="sim2"/>
+                        <ComboBoxItem Content="sim3"/>
+                        <ComboBoxItem Content="arc1"/>
+                    </ComboBox>
+                </Border>
+                <Border BorderThickness="5" CornerRadius="5" BorderBrush="#EAEAEA" Height="30" Width="80" Margin="0,5">
+                    <Button Command="{Binding TopPlayersInfo}" Content="Update" Background="#EAEAEA" BorderBrush="#EAEAEA" BorderThickness="0"/>
+                </Border>
+            </StackPanel>
+            <StackPanel>
+                <Border BorderThickness="5" CornerRadius="5" BorderBrush="Gray">
+                    <ListBox ItemsSource="{Binding TopPlayers}" MinHeight="50" MinWidth="200" Background="Gray" BorderThickness="0" BorderBrush="DarkGray">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <Border BorderThickness="3" BorderBrush="{Binding Path=Color}" CornerRadius="5">
+                                    <StackPanel Background="{Binding Path=Color}">
+                                        <TextBlock Text="{Binding Path=Name}" >
+                                            <TextBlock.ToolTip>
+                                                <ToolTip>place</ToolTip>
+                                            </TextBlock.ToolTip></TextBlock>
+                                        <TextBlock Text="{Binding Path=Players}">
+                                            <TextBlock.ToolTip>
+                                                <ToolTip>players</ToolTip>
+                                            </TextBlock.ToolTip></TextBlock>
+                                        <TextBlock Text="{Binding Path=Country}">
+                                            <TextBlock.ToolTip>
+                                                <ToolTip>country</ToolTip>
+                                            </TextBlock.ToolTip></TextBlock>
+                                        <TextBlock Text="{Binding Path=Severity}">
+                                            <TextBlock.ToolTip>
+                                                <ToolTip>severity</ToolTip>
+                                            </TextBlock.ToolTip></TextBlock>
+                                        <TextBlock Text="{Binding Path=TrafficJams}">
+                                            <TextBlock.ToolTip>
+                                                <ToolTip>traffic jams</ToolTip>
+                                            </TextBlock.ToolTip></TextBlock>
+                                        <TextBlock Text="{Binding Path=PlayersInvolvedInTrafficJams}">
+                                            <TextBlock.ToolTip>
+                                                <ToolTip>players in traffic jams</ToolTip>
+                                            </TextBlock.ToolTip></TextBlock>
+                                    </StackPanel>
+                                </Border>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                        <ListBox.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <WrapPanel MinHeight="100" MaxWidth="700"></WrapPanel>
+                            </ItemsPanelTemplate>
+                        </ListBox.ItemsPanel>
+                    </ListBox>
+                </Border>
+            </StackPanel>
+        </StackPanel>
+    </DockPanel>
+</Window>
